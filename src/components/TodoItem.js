@@ -52,7 +52,10 @@ export default function TodoItem({ todo }) {
         pt: 2,
         px: 4,
         pb: 3,
-        backgroundColor: "#e2e2e2"
+        backgroundColor: "#e2e2e2",
+        display: "flex",
+        justifyContent: "space-around",
+        flexWrap: "wrap",
     };
 
     return (
@@ -78,9 +81,9 @@ export default function TodoItem({ todo }) {
                 aria-labelledby="parent-modal-title"
                 aria-describedby="parent-modal-description"
             >
-                <Box sx={{ ...style, width: 400 }}>
+                <Box sx={{ ...style, width: "40%" }}>
                     <TextField variant="standard" value={todoInput} onChange={(e) => setTodoinput(e.target.value)}></TextField>
-                    <Button variant='contained' sx={{ marginLeft: "10px" }} onClick={() => updatetodo(todoInput, todo)}>
+                    <Button variant='contained' sx={{ padding: "10px" }} onClick={() => updatetodo(todoInput, todo)}>
                         Update
                     </Button>
                 </Box>
