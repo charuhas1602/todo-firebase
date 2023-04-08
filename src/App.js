@@ -41,7 +41,7 @@ function App() {
     setInput("")
   }
 
-  
+
 
 
 
@@ -53,13 +53,13 @@ function App() {
       <Box sx={{ width: '100%', maxWidth: 700, margin: "10px auto", display: "flex", justifyContent: "space-around" }}>
         <FormControl sx={{ display: "flex", justifyContent: "space-around", width: "100%", flexDirection: "row", backgroundColor: "#E4DCCF", padding: "15px", borderRadius: "5px" }}>
           <Input id="my-input" value={input} placeholder='✅ Write Todo' type="text" onChange={(event) => { setInput(event.target.value) }} sx={{ width: "90%", margin: "0 20px" }} />
-          <Button variant='contained' type='submit' onClick={(e) => addTodo(e)} disabled={!input}>Add todo</Button>
+          <Button variant='contained' type='submit' onClick={(e) => addTodo(e)} disabled={input.length > 3 ? false : true}>Add todo</Button>
         </FormControl>
       </Box>
       <Box sx={{ width: '100%', maxWidth: 700, margin: "10px auto", display: "flex", justifyContent: "stretch", flexDirection: "column", alignItems: "center" }}>
         {todos.map(todo => {
           return (
-            <TodoItem todo={todo} key={todo.id}  />
+            <TodoItem todo={todo} key={todo.id} />
           )
         })}
       </Box>
