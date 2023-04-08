@@ -46,7 +46,7 @@ function App() {
 
 
   return (
-    <div className="App">
+    <div className="App px-2">
       <Typography variant="h1" gutterBottom>
         Todo App
       </Typography>

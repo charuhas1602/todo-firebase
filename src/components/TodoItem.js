@@ -44,8 +44,8 @@ export default function TodoItem({ todo }) {
         position: 'absolute',
         top: '50%',
         left: '50%',
-        transform: 'translate(-50%, -50%)',
-        width: 400,
+        transform: 'translate(-37%, -50%)',
+        minWidth: "330px",
         bgcolor: 'background.paper',
         border: '2px solid #000',
         boxShadow: 24,
@@ -80,11 +80,11 @@ export default function TodoItem({ todo }) {
                 onClose={handleClose}
                 aria-labelledby="parent-modal-title"
                 aria-describedby="parent-modal-description"
-                sx={{width:"80%"}}
+                sx={{ width: "80%" }}
             >
-                <Box sx={{ ...style, width: "40%" }}>
+                <Box sx={{ ...style }}>
                     <TextField variant="standard" value={todoInput} onChange={(e) => setTodoinput(e.target.value)}></TextField>
-                    <Button variant='contained' sx={{ padding: "10px" }} onClick={() => updatetodo(todoInput, todo)}>
+                    <Button variant='contained' className='sm:mt-3' sx={{ marginTop: "8px" }} onClick={() => updatetodo(todoInput, todo)}>
                         Update
                     </Button>
                 </Box>
