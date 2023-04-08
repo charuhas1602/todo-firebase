@@ -80,6 +80,7 @@ export default function TodoItem({ todo }) {
                 onClose={handleClose}
                 aria-labelledby="parent-modal-title"
                 aria-describedby="parent-modal-description"
+                sx={{width:"80%"}}
             >
                 <Box sx={{ ...style, width: "40%" }}>
                     <TextField variant="standard" value={todoInput} onChange={(e) => setTodoinput(e.target.value)}></TextField>
