@@ -1,6 +1,12 @@
 
 Live link-https://todo-react-bb804.web.app/
 
+
+ *************** Deploy update **********
+ npm run buid
+ firebase delpoy
+
+ 
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).

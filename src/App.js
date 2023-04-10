@@ -1,10 +1,12 @@
 
-import { Box, Button, FormControl, Input, Typography } from '@mui/material';
+import { Box, Button, FormControl, Input } from '@mui/material';
 import { useEffect, useState } from 'react';
 import './App.css';
 import TodoItem from './components/TodoItem';
 import { db } from './firebase-config';
 import { addDoc, collection, getDocs, serverTimestamp, updateDoc } from 'firebase/firestore/lite';
+import ButtonAppBar from './components/ButtonAppBar';
+import AppTitle from './components/AppTitle';
 // import firebase from 'firebase'
 
 function App() {
@@ -46,24 +48,25 @@ function App() {
 
 
   return (
-    <div className="App px-2">
-      <Typography variant="h1" gutterBottom>
-        Todo App
-      </Typography>
-      <Box sx={{ width: '100%', maxWidth: 700, margin: "10px auto", display: "flex", justifyContent: "space-around" }}>
-        <FormControl sx={{ display: "flex", justifyContent: "space-around", width: "100%", flexDirection: "row", backgroundColor: "#E4DCCF", padding: "15px", borderRadius: "5px" }}>
-          <Input id="my-input" value={input} placeholder='✅ Write Todo' type="text" onChange={(event) => { setInput(event.target.value) }} sx={{ width: "90%", margin: "0 20px" }} />
-          <Button variant='contained' type='submit' onClick={(e) => addTodo(e)} disabled={input.length > 3 ? false : true}>Add todo</Button>
-        </FormControl>
-      </Box>
-      <Box sx={{ width: '100%', maxWidth: 700, margin: "10px auto", display: "flex", justifyContent: "stretch", flexDirection: "column", alignItems: "center" }}>
-        {todos.map(todo => {
-          return (
-            <TodoItem todo={todo} key={todo.id} />
-          )
-        })}
-      </Box>
-    </div>
+    <>
+      <ButtonAppBar></ButtonAppBar>
+      <div className="App px-2 ">
+        <AppTitle/>
+        <Box sx={{ width: '100%', maxWidth: 700, margin: "10px auto", display: "flex", justifyContent: "space-around" }}>
+          <FormControl sx={{ display: "flex", justifyContent: "space-around", width: "100%", flexDirection: "row", backgroundColor: "#E4DCCF", padding: "15px", borderRadius: "5px" }}>
+            <Input id="my-input" value={input} placeholder='✅ Write Todo' type="text" onChange={(event) => { setInput(event.target.value) }} sx={{ width: "90%", margin: "0 20px" }} />
+            <Button variant='contained' type='submit' onClick={(e) => addTodo(e)} disabled={input.length > 3 ? false : true}>Add todo</Button>
+          </FormControl>
+        </Box>
+        <Box sx={{ width: '100%', maxWidth: 700, margin: "10px auto", display: "flex", justifyContent: "stretch", flexDirection: "column", alignItems: "center" }}>
+          {todos.map(todo => {
+            return (
+              <TodoItem todo={todo} key={todo.id} />
+            )
+          })}
+        </Box>
+      </div>
+    </>
   );
 }
 
